@@ -1,8 +1,8 @@
 # Hey emacs, this is -*-perl-*- !
 #
-# $Source: /home/cur/djb1/develop/perl/Metadata/lib/Metadata/RCS/SOIF.pm,v $
+# $Source: /nfs/elm/d7/home/cur/djb1/develop/perl/Metadata/lib/Metadata/RCS/SOIF.pm,v $
 #
-# $Id: SOIF.pm,v 1.6 1998/06/23 12:33:45 djb1 Exp $
+# $Id: SOIF.pm,v 1.8 1999/03/28 22:48:20 djb1 Exp $
 #
 # Metadata::SOIF - Harvest Structured Objects Interchange Format class
 #
@@ -24,7 +24,7 @@ use Carp;
 use Metadata::Base;
 
 @ISA     = qw( Metadata::Base );
-$VERSION = sprintf("%d.%02d", ('$Revision: 1.6 $ ' =~ /\$Revision:\s+(\d+)\.(\d+)/));
+$VERSION = sprintf("%d.%02d", ('$Revision: 1.8 $ ' =~ /\$Revision:\s+(\d+)\.(\d+)/));
 
 %Default_Options=(
   TEMPLATE_TYPE => 'FILE',
@@ -135,8 +135,9 @@ sub read ($$;$) {
       warn "@{[&whowasi]}: Read Template Type '$template_type' URL '$url'\n" if $self->{DEBUG};
       $self->template_type($template_type);
       $self->url($url) and $seen_url=1 unless $seen_url;
-    } elsif (my($element,$rest_length,$value)=/^\s*([^{]+)\{(\d+)\}:\s+(.*)$/so) {
-      my $value_length=length($value)-1; # for newline
+    } elsif (my($element,$rest_length,$value)=/^\s*([^{]+)\{(\d+)\}:\t(.*)$/so) {
+      my $value_length=length($value)-1;  # -1 off for for NL, removed below
+      $value_length=0 if $value_length<0; # however handle 0 length value
       $rest_length-= $value_length;
       if ($rest_length>0) {
 	$value_length++; # Append after newline

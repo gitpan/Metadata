@@ -1,7 +1,7 @@
 # Change 1..1 below to 1..last_test_to_print .
 
 
-BEGIN { $| = 1; print "1..4\n"; }
+BEGIN { $| = 1; print "1..5\n"; }
 END {print "not ok 1\n" unless $loaded;}
 
 use vars qw($verbose);
@@ -130,4 +130,39 @@ if (0) {
 	  print "not ok $testnum\n";
 	}
 	$testnum++;
+}
+
+# I believe that I've found a bug in Metadata::SOIF (0.21)
+# ... read() doesn't work as expected ... [when the start of the
+# value is a newline] - Hrvoje Stipetic
+{
+  my $tmp_soif="ex1.soif";
+  open(OUT, ">$tmp_soif") or die "Cannot create $tmp_soif - $!\n";
+  print OUT <<'EOD';
+@FILE { news:foo@bar
+Attribute1{11}:	
+0123456789
+Attribute2{10}:	0123456789
+}
+EOD
+  close(OUT);
+  
+  open (IN, $tmp_soif) or die "Cannot read $tmp_soif - $!\n";
+  my $soif=new Metadata::SOIF;
+  $soif->read(\*IN);
+  close(IN);
+  
+  unlink $tmp_soif;
+
+  my $v1=$soif->get("Attribute1") || '(undefined)';
+  my $v2=$soif->get("Attribute2") || '(undefined)';
+
+  if ($v1 eq "\n0123456789" && $v2 eq '0123456789') {
+    print "ok $testnum\n";
+  } else {
+    warn "Attribute1 is '$v1', expected <NL>0123456789\n";
+    warn "Attribute2 is '$v2', expected 0123456789\n";
+    print "not ok $testnum\n";
+  }
+  $testnum++;
 }

@@ -1,7 +1,7 @@
 Metadata - classes for simple metadata
 ======================================
 
-Copyright (C) 1997-1998 Dave Beckett.  All rights reserved.
+Copyright (C) 1997-1999 Dave Beckett.  All rights reserved.
 
 This program is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
@@ -42,14 +42,21 @@ BUILDING
 
 EXTRAS
 
-I have created a Metadata::HTTP class that wraps an HTTP log line (in
-common / extended log format) which may be useful.  Should it be in
-the core since the class is so trivial?  
+lib/Metadata/HTTP wraps an HTTP log line (in common / extended log
+format) which may be useful.
 
-htdig-dump dumps an ht://dig search docs database into a
-Harvest-compatible SOIF format (untested).  It should be trivial to
-convert this into a real harvest gatherd.
+The examples directory contains some programs that may be interesting:
+  gather
+    A sort-of replacement for the Harvest gather program using these
+    modules.
 
+  htdig-dump
+    dumps an ht://dig search docs database into a Harvest-compatible
+    SOIF format (untested).  It should be trivial to convert this
+    into a real harvest gatherd.
+
+  scan-log
+    HTTP log scanning example attempting to identify robot requests
 
 Dave Beckett
 http://www.cs.ukc.ac.uk/people/staff/djb1/
