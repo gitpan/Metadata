@@ -1,11 +1,11 @@
 # Hey emacs, this is -*- perl -*- !
-# $Id: Makefile.PL,v 1.6 1998/06/23 12:47:22 djb1 Exp $
+# $Id: Makefile.PL,v 1.8 1998/07/27 14:01:23 djb1 Exp $
 
 require 5.004;
 
 use ExtUtils::MakeMaker;
 
-$::VERSION='0.12';
+$::VERSION='0.20';
 
 
 # Do not change

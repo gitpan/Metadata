@@ -23,6 +23,7 @@ Metadata::
 ::Base         bdpO  Base metadata functionality                  DJBECKETT
 ::IAFA         bdpO  IAFA templates metadata                      DJBECKETT
 ::SOIF         bdpO  Harvest SOIF metadata                        DJBECKETT
+::HTTP         adpO  Metadata record for an HTTP log record       DJBECKETT
 
 
 
@@ -37,6 +38,17 @@ BUILDING
     make
     make test
     make install (if the tests look okay)
+
+
+EXTRAS
+
+I have created a Metadata::HTTP class that wraps an HTTP log line (in
+common / extended log format) which may be useful.  Should it be in
+the core since the class is so trivial?  
+
+htdig-dump dumps an ht://dig search docs database into a
+Harvest-compatible SOIF format (untested).  It should be trivial to
+convert this into a real harvest gatherd.
 
 
 Dave Beckett
