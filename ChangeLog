@@ -1,0 +1,68 @@
+1998-06-23  Dave Beckett  <D.J.Beckett@ukc.ac.uk>
+
+	* MANIFEST: Added ChangeLog
+
+	* Makefile.PL: Tweak warning words.
+
+	* README: Now have Info field
+
+	* Makefile.PL: Make SOIF pack/unpack preserve ttype and url
+
+	* gather:
+	Add -ignoremismatch to gloss over problems with hostname matching.
+
+1998-06-23  Dave Beckett  <D.J.Beckett@ukc.ac.uk>
+
+	* README: Now have Info field
+
+	* Makefile.PL: Make SOIF pack/unpack preserve ttype and url
+
+	* gather:
+	Add -ignoremismatch to gloss over problems with hostname matching.
+
+1998-06-23  D.J.Beckett  <djb1@elm>
+
+	* gather:
+	Add -ignoremismatch to gloss over problems with hostname matching.
+
+1998-04-05  D.J.Beckett  <djb1@elm>
+
+	* gather: New file.
+
+	* MANIFEST: No Collate or Element
+
+	* README: Add funny perl DSLI stuff.
+
+	* Makefile.PL: Have RCS symbol too
+	Tweak warnings.
+	Now 0.11
+
+1997-07-23  D.J.Beckett  <djb1@elm>
+
+	* README: Updated
+
+	* Makefile.PL: Version here, not from Base.
+
+	* MANIFEST: Added Metadata::Element
+
+1997-07-16  D.J.Beckett  <djb1@elm>
+
+	* MANIFEST: Added Metadata::SOIF files.
+
+1997-07-14  D.J.Beckett  <djb1@elm>
+
+	* MANIFEST: Added Metadata::Collate class and time.t testing
+
+	* Makefile.PL: Update to check for required modules.
+
+1997-06-29  D.J.Beckett  <djb1@elm>
+
+	* MANIFEST, Makefile.PL, README: New file.
+
+1998-06-23  D.J.Beckett  <djb1@elm>
+
+	* Makefile.PL: Make SOIF pack/unpack preserve ttype and url
+
+	* gather:
+	Add -ignoremismatch to gloss over problems with hostname matching.
+

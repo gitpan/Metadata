@@ -2,7 +2,7 @@
 #
 # $Source: /home/cur/djb1/develop/perl/Metadata/RCS/gather,v $
 #
-# $Id: gather,v 1.1 1998/04/05 12:44:02 djb1 Exp $
+# $Id: gather,v 1.2 1998/06/23 12:34:40 djb1 Exp $
 #
 # Harvest gather command using Metadata classes
 #
@@ -21,7 +21,7 @@ use IO::Socket;
 # Local modules
 use Metadata::SOIF;
 
-$::VERSION=(split(/ /, q$Id: gather,v 1.1 1998/04/05 12:44:02 djb1 Exp $))[2];
+$::VERSION=(split(/ /, q$Id: gather,v 1.2 1998/06/23 12:34:40 djb1 Exp $))[2];
 
 $::progname=basename $0;
 
@@ -37,6 +37,7 @@ sub main () {
 
   my $do_info=1;
   my $do_compress=1;
+  my $do_ignore_mismatch=0;
 
   while(@ARGV && $ARGV[0] =~ /^-(.*)$/) {
     shift(@ARGV);
@@ -45,6 +46,8 @@ sub main () {
       $do_info=1;
     } elsif ($arg eq 'nocompress') {
       $do_compress=0;
+    } elsif ($arg eq 'ignoremismatch') {
+      $do_ignore_mismatch=1;
     } elsif ($arg =~ /^v(?:ersion)?$/) {
       die "$::VERSION\n";
     } else {
@@ -66,7 +69,7 @@ sub main () {
     $usage=1;
   }
 
-  die "Usage: gather [-info | -nocompress] hostname [port] [timestamp]\n" 
+  die "Usage: gather [-info | -nocompress | -ignoremismatch] hostname [port] [timestamp]\n" 
     if $usage;
 
   my $sock=IO::Socket::INET->new(PeerAddr => "$host:$port", Proto => 'tcp');
@@ -91,7 +94,9 @@ sub main () {
 
 	warn "$::progname: Received welcome message from $remote using protocol V$version\n";
 	if ($remote ne $peerhostname) {
-	  warn "$::progname: remote hostname mismatch - $remote vs $peerhostname\n";
+	  warn "$::progname: Remote hostname mismatch - $remote vs $peerhostname\n";
+	}
+	if (($remote ne $peerhostname) && !$do_ignore_mismatch) {
 	  print $sock "QUIT\n";
 	} else {
 	  warn "$::progname: Sending HELLO\n";

@@ -1,11 +1,11 @@
 # Hey emacs, this is -*- perl -*- !
-# $Id: Makefile.PL,v 1.4 1998/04/05 12:43:00 djb1 Exp $
+# $Id: Makefile.PL,v 1.6 1998/06/23 12:47:22 djb1 Exp $
 
 require 5.004;
 
 use ExtUtils::MakeMaker;
 
-$::VERSION='0.11';
+$::VERSION='0.12';
 
 
 # Do not change
@@ -36,13 +36,13 @@ sub chk_version
 
 chk_version(Date::Format => 2.07) or
     warn  "\n"
-	. "Metadata::IAFA routine set_date_as_seconds may need Date::Format version 2.07 \n"
+	. "Metadata::IAFA routine set_date_as_seconds uses Date::Format version 2.07 \n"
         . "or later which is part of the TimeDate module 1.07 or later\n"
 	. "Look on CPAN for CPAN/modules/by-author/id/GBARR/TimeDate-x.xx.tar.gz\n\n";
 
 chk_version(Date::Parse => 2.06) or
     warn  "\n"
-	. "Metadata::IAFA routine get_date_as_seconds may need Date::Parse version 2.06 \n"
+	. "Metadata::IAFA routine get_date_as_seconds uses Date::Parse version 2.06 \n"
 	. "or later which is part of the TimeDate module 1.07 or later\n"
 	. "Look on CPAN for CPAN/modules/by-author/id/GBARR/TimeDate-x.xx.tar.gz\n\n";
 

@@ -10,3 +10,4 @@ t/time.t		Test Metadata::IAFA time functionality
 t/soif.t		Test Metadata::SOIF functionality
 gather			Harvest gather program written using Metadata::SOIF
 BUGS			Known bugs
+ChangeLog		Changes

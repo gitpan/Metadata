@@ -1,7 +1,7 @@
 # Change 1..1 below to 1..last_test_to_print .
 
 
-BEGIN { $| = 1; print "1..3\n"; }
+BEGIN { $| = 1; print "1..4\n"; }
 END {print "not ok 1\n" unless $loaded;}
 
 use vars qw($verbose);
@@ -103,4 +103,31 @@ if (0) {
  }
 
  $testnum++;
+}
+
+
+# The pack and unpack methods don't preserve either the template type
+# or the URL of the SOIF structure. The following short piece of code
+# shows the bug. - Simon Wilkinson
+{
+
+	my $soif1=new Metadata::SOIF;
+	$soif1->template_type("foo");
+	$soif1->url("bar");
+	print $soif1->as_string;
+	$packed=$soif1->pack;
+	
+	my $soif2=new Metadata::SOIF;
+	$soif2->unpack($packed);
+
+	my $url=$soif2->url;
+	my $tt=$soif2->template_type;
+	if ($url eq 'bar' && $tt eq 'foo') {
+	  print "ok $testnum\n";
+	} else {
+	  warn "URL was $url - expected bar\n";
+	  warn "Template Type was $tt - expected foo\n";
+	  print "not ok $testnum\n";
+	}
+	$testnum++;
 }

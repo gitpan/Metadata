@@ -1,8 +1,8 @@
 # Hey emacs, this is -*-perl-*- !
 #
-# $Source: /nfs/elm/d3/home/cur/djb1/develop/perl/Metadata/lib/Metadata/RCS/SOIF.pm,v $
+# $Source: /home/cur/djb1/develop/perl/Metadata/lib/Metadata/RCS/SOIF.pm,v $
 #
-# $Id: SOIF.pm,v 1.5 1998/03/30 17:38:27 djb1 Exp $
+# $Id: SOIF.pm,v 1.6 1998/06/23 12:33:45 djb1 Exp $
 #
 # Metadata::SOIF - Harvest Structured Objects Interchange Format class
 #
@@ -24,7 +24,7 @@ use Carp;
 use Metadata::Base;
 
 @ISA     = qw( Metadata::Base );
-$VERSION = sprintf("%d.%02d", ('$Revision: 1.5 $ ' =~ /\$Revision:\s+(\d+)\.(\d+)/));
+$VERSION = sprintf("%d.%02d", ('$Revision: 1.6 $ ' =~ /\$Revision:\s+(\d+)\.(\d+)/));
 
 %Default_Options=(
   TEMPLATE_TYPE => 'FILE',
@@ -175,6 +175,25 @@ sub format ($;$) {
     $string.="$element\{".length($value)."\}:\t".$value."\n";
   }
   return $string."}\n";
+}
+
+
+# Pack Template Type and URL too
+sub pack ($) {
+  my $self=shift;
+  my $string=$self->SUPER::pack;
+
+  # Use the knowledge that Metadata::Base uses 'thing\0' for fields
+  return join("\001", $self->{TEMPLATE_TYPE}, $self->{URL}, $string);
+}
+
+
+sub unpack ($$) {
+  my $self=shift;
+  my($tt,$url,$string)=split(/\001/, shift);
+  $self->SUPER::unpack($string);
+  $self->{TEMPLATE_TYPE}=$tt;
+  $self->{URL}=$url;
 }
 
 

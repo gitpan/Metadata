@@ -20,9 +20,9 @@ CONTENTS in perl module list form
 Name           DSLI  Description                                  Info
 -------------  ----  -------------------------------------------- -----
 Metadata::
-::Base         bdpO  Base metadata functionality                  ????
-::IAFA         bdpO  IAFA templates metadata                      ????
-::SOIF         bdpO  Harvest SOIF metadata                        ????
+::Base         bdpO  Base metadata functionality                  DJBECKETT
+::IAFA         bdpO  IAFA templates metadata                      DJBECKETT
+::SOIF         bdpO  Harvest SOIF metadata                        DJBECKETT
 
 
 
