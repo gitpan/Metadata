@@ -1,0 +1,43 @@
+Metadata - classes for simple metadata
+======================================
+
+Copyright (C) 1997-1998 Dave Beckett.  All rights reserved.
+
+This program is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+WARNING: THIS IS BETA SOFTWARE.  IT HAS BEEN TESTED AND USED BUT
+MAY STILL BE UNRELIABLE.
+Beta also means that the interface is unlikely to change.
+
+This collection of modules provide an implementation of Dublin Core
+compatible metadata and subclasses for IAFA Templates, SOIF (Harvest)
+and should be easily extendible to similar (fairly flat) metadata
+formats.
+
+CONTENTS in perl module list form
+
+Name           DSLI  Description                                  Info
+-------------  ----  -------------------------------------------- -----
+Metadata::
+::Base         bdpO  Base metadata functionality                  ????
+::IAFA         bdpO  IAFA templates metadata                      ????
+::SOIF         bdpO  Harvest SOIF metadata                        ????
+
+
+
+BEFORE BUILDING, TESTING AND INSTALLING this you will need to:
+
+    Build, test and install Perl 5 (at least version 5.004).
+
+
+BUILDING
+
+    perl Makefile.PL
+    make
+    make test
+    make install (if the tests look okay)
+
+
+Dave Beckett
+http://www.cs.ukc.ac.uk/people/staff/djb1/
