@@ -1,13 +1,10 @@
 #!/usr/local/bin/perl -w
 #
-# $Source: /home/cur/djb1/develop/perl/Metadata/RCS/gather,v $
-#
-# $Id: gather,v 1.3 1998/07/27 13:57:16 djb1 Exp $
+# $Id: gather,v 1.4 2001/01/09 12:03:54 cmdjb Exp $
 #
 # Harvest gather command using Metadata classes
 #
-# (C) Copyright 1998 Dave Beckett <D.J.Beckett@ukc.ac.uk>
-# University of Kent at Canterbury
+# Copyright (C) 1997-2001 Dave Beckett - http://purl.org/net/dajobe/
 #
 
 require 5.004;
@@ -21,7 +18,7 @@ use IO::Socket;
 # Local modules
 use Metadata::SOIF;
 
-$::VERSION=(split(/ /, q$Id: gather,v 1.3 1998/07/27 13:57:16 djb1 Exp $))[2];
+$::VERSION=(split(/ /, q$Id: gather,v 1.4 2001/01/09 12:03:54 cmdjb Exp $))[2];
 
 $::progname=basename $0;
 

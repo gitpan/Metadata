@@ -1,3 +1,7 @@
+0.24
+
+Updated for Perl 5.6
+
 0.2
 
 Added Metadata::HTTP class.  Is this really a good idea?  Added example

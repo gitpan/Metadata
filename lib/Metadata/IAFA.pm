@@ -1,8 +1,8 @@
 # Hey emacs, this is -*-perl-*- !
 #
-# $Source: /home/cur/djb1/develop/perl/Metadata/lib/Metadata/RCS/IAFA.pm,v $
+# $Source: /home/cmdjb/develop/perl/Metadata/lib/Metadata/RCS/IAFA.pm,v $
 #
-# $Id: IAFA.pm,v 1.8 1998/04/05 12:41:25 djb1 Exp $
+# $Id: IAFA.pm,v 1.10 2001/01/09 12:07:26 cmdjb Exp $
 #
 # Metadata::IAFA - IAFA templates class
 #
@@ -25,7 +25,7 @@ use Carp;
 use Metadata::Base;
 
 @ISA     = qw( Metadata::Base );
-$VERSION = sprintf("%d.%02d", ('$Revision: 1.8 $ ' =~ /\$Revision:\s+(\d+)\.(\d+)/));
+$VERSION = sprintf("%d.%02d", ('$Revision: 1.10 $ ' =~ /\$Revision:\s+(\d+)\.(\d+)/));
 
 %Default_Options=(
   TEMPLATE_TYPE => 'DOCUMENT',
@@ -76,13 +76,6 @@ sub new {
   my $self = $class->SUPER::new($options);
   bless $self, $class;
   return $self;
-}
-
-
-# Destructor - destroy Metadata::Base
-sub DESTROY {
-  my $self=shift;
-  Metadata::Base::DESTROY($self);
 }
 
 
@@ -440,14 +433,12 @@ L<Metadata::Base>, L<Text::Wrap>
 
 =head1 AUTHOR
 
-By Dave Beckett E<lt>I<D.J.Beckett@ukc.ac.uk>E<gt>.
+By Dave Beckett - http://purl.org/net/dajobe/
 
 =head1 COPYRIGHT
 
-Copyright 1997 Dave Beckett.  All rights reserved.
-
-This module is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+Copyright (C) 1997-2001 Dave Beckett - http://purl.org/net/dajobe/
+All rights reserved.
 
 =cut
 

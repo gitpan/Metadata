@@ -1,12 +1,11 @@
 # Hey emacs, this is -*-perl-*- !
 #
-# $Source:$
-#
-# $Id:$
+# $Id: HTTP.pm,v 1.1 2001/01/09 12:08:46 cmdjb Exp $
 #
 # Metadata::HTTP - HTTP request 'metadata' class
 #
-# Copyright (C) 1997-1998 Dave Beckett.  All rights reserved.
+# Copyright (C) 1997-2001 Dave Beckett - http://purl.org/net/dajobe/
+# All rights reserved.
 #
 # This module is free software; you can redistribute it and/or modify
 # it under the same terms as Perl itself.
@@ -73,13 +72,6 @@ sub new {
   my $self = $class->SUPER::new($options);
   bless $self, $class;
   return $self;
-}
-
-
-# Destructor - destroy Metadata::Base
-sub DESTROY {
-  my $self=shift;
-  Metadata::Base::DESTROY($self);
 }
 
 
@@ -238,14 +230,12 @@ L<Metadata::Base>
 
 =head1 AUTHOR
 
-By Dave Beckett E<lt>I<D.J.Beckett@ukc.ac.uk>E<gt>.
+By Dave Beckett - http://purl.org/net/dajobe/
 
 =head1 COPYRIGHT
 
-Copyright 1998 Dave Beckett.  All rights reserved.
-
-This module is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+Copyright (C) 1997-2001 Dave Beckett - http://purl.org/net/dajobe/
+All rights reserved.
 
 =cut
 

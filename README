@@ -1,7 +1,7 @@
 Metadata - classes for simple metadata
 ======================================
 
-Copyright (C) 1997-1999 Dave Beckett.  All rights reserved.
+Copyright (C) 1997-2001 Dave Beckett.  All rights reserved.
 
 This program is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
@@ -59,4 +59,4 @@ The examples directory contains some programs that may be interesting:
     HTTP log scanning example attempting to identify robot requests
 
 Dave Beckett
-http://www.cs.ukc.ac.uk/people/staff/djb1/
+http://purl.org/net/dajobe/

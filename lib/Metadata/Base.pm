@@ -1,12 +1,11 @@
 # Hey emacs, this is -*-perl-*- !
 #
-# $Source: /home/cur/djb1/develop/perl/Metadata/lib/Metadata/RCS/Base.pm,v $
-#
-# $Id: Base.pm,v 1.9 1998/04/05 12:41:14 djb1 Exp $
+# $Id: Base.pm,v 1.10 2001/01/09 12:04:12 cmdjb Exp $
 #
 # Metadata::Base - base class for metadata
 #
-# Copyright (C) 1997-1998 Dave Beckett.  All rights reserved.
+# Copyright (C) 1997-2001 Dave Beckett - http://purl.org/net/dajobe/
+# All rights reserved.
 #
 # This module is free software; you can redistribute it and/or modify
 # it under the same terms as Perl itself.
@@ -21,7 +20,7 @@ use vars qw($VERSION $Debug);
 
 use Carp;
 
-$VERSION = sprintf("%d.%02d", ('$Revision: 1.9 $ ' =~ /\$Revision:\s+(\d+)\.(\d+)/));
+$VERSION = sprintf("%d.%02d", ('$Revision: 1.10 $ ' =~ /\$Revision:\s+(\d+)\.(\d+)/));
 
 
 # Class debugging
@@ -628,11 +627,12 @@ number of seconds since 1st January 1970.
 
 =head1 AUTHOR
 
-By Dave Beckett E<lt>I<D.J.Beckett@ukc.ac.uk>E<gt>.
+By Dave Beckett - http://purl.org/net/dajobe/
 
 =head1 COPYRIGHT
 
-Copyright 1997-1998 Dave Beckett.  All rights reserved.
+Copyright (C) 1997-2001 Dave Beckett - http://purl.org/net/dajobe/
+All rights reserved.
 
 This module is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
